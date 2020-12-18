@@ -39,6 +39,8 @@ function draw(){
  Engine.update(engine);
  background(240)
  base1.display();
+ push()
+ fill("blue")
  box1.display();
  box2.display();
  box3.display();
@@ -49,7 +51,7 @@ function draw(){
  box8.display();
  box9.display();
  box10.display();
-
+pop()
  //sling.display();
 
  imageMode(CENTER)
