@@ -2,9 +2,10 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-var base1;
+var base1,base2;
 var sling;
 var polygonimg;
+var box11,box12,box13,box14,box15,box16;
 var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10;
 function preload(){
 polygonimg = loadImage("polygon.png")
@@ -14,6 +15,7 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
     base1 = new Ground(750,410,300,20)
+     base2 = new Ground(1000,300,200,20)
     box1 = new Box(770,380,40,40)
     box2 = new Box(730,380,40,40)
     box3 = new Box(700,380,40,40)
@@ -24,6 +26,12 @@ function setup(){
     box8 = new Box(770,330,40,40)
     box9 = new Box(730,330,40,40)
     box10 = new Box(750,305,40,40)
+    box11 = new Box(1000,280,40,40)
+    box12 = new Box(980,280,40,40)
+    box13 = new Box(1020,280,40,40)
+    box14 = new Box(1020,260,40,40)
+    box15 = new Box(980,260,40,40)
+    box16 = new Box(1000,240,40,40)
     var options = {
         isStatic:false,
         density:2,
@@ -39,6 +47,7 @@ function draw(){
  Engine.update(engine);
  background(240)
  base1.display();
+ base2.display()
  push()
  fill("blue")
  box1.display();
@@ -51,6 +60,12 @@ function draw(){
  box8.display();
  box9.display();
  box10.display();
+ box11.display();
+ box12.display();
+ box13.display();
+ box14.display();
+ box15.display();
+ box16.display();
 pop()
  //sling.display();
 
