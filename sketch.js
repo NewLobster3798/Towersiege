@@ -14,18 +14,19 @@ function setup(){
     createCanvas(1200,600)
     engine = Engine.create();
     world = engine.world;
-    base1 = new Ground(750,410,300,20)
+    base1 = new Ground(700,410,300,20)
      base2 = new Ground(1000,300,200,20)
-    box1 = new Box(770,380,40,40)
-    box2 = new Box(730,380,40,40)
-    box3 = new Box(700,380,40,40)
-    box4 = new Box(800,380,40,40)
-    box5 = new Box(750,350,40,40)
-    box6 = new Box(715,350,40,40)
-    box7 = new Box(785,350,40,40)
-    box8 = new Box(770,330,40,40)
-    box9 = new Box(730,330,40,40)
-    box10 = new Box(750,305,40,40)
+    box1 = new Box(720,380,40,40)
+    box2 = new Box(680,380,40,40)
+    box3 = new Box(650,380,40,40)
+    box4 = new Box(750,380,40,40)
+    box5 = new Box(700,350,40,40)
+    box6 = new Box(665,350,40,40)
+    box7 = new Box(735,350,40,40)
+    box8 = new Box(720,330,40,40)
+    box9 = new Box(680,330,40,40)
+    box10 = new Box(700,305,40,40)
+    //second tower
     box11 = new Box(1000,280,40,40)
     box12 = new Box(980,280,40,40)
     box13 = new Box(1020,280,40,40)
@@ -78,4 +79,9 @@ function mouseDragged(){
 }
 function mouseReleased(){
     sling.fly();
+}
+function keyPressed(){
+    if(keyCode == 32){
+        sling.attach(polygon)
+    }
 }
