@@ -33,6 +33,8 @@ function setup(){
     box14 = new Box(1020,260,40,40)
     box15 = new Box(980,260,40,40)
     box16 = new Box(1000,240,40,40)
+
+    box17 = new Box(200,200,10,10)
     var options = {
         isStatic:false,
         density:2,
@@ -67,6 +69,8 @@ function draw(){
  box14.display();
  box15.display();
  box16.display();
+
+ box17.display()
 pop()
  //sling.display();
 
