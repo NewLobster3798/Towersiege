@@ -4,16 +4,20 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 var base1,base2;
 var sling;
+var score;
 var polygonimg;
 var box11,box12,box13,box14,box15,box16;
 var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10;
 function preload(){
-polygonimg = loadImage("polygon.png")
+    polygonimg = loadImage("polygon.png")
+    getBackgroundImg()
+
 }
 function setup(){
     createCanvas(1200,600)
     engine = Engine.create();
     world = engine.world;
+    score  =0;
     base1 = new Ground(700,410,300,20)
      base2 = new Ground(1000,300,200,20)
     box1 = new Box(720,380,40,40)
@@ -34,7 +38,7 @@ function setup(){
     box15 = new Box(980,260,40,40)
     box16 = new Box(1000,240,40,40)
 
-    box17 = new Box(200,200,10,10)
+ 
     var options = {
         isStatic:false,
         density:2,
@@ -45,15 +49,18 @@ function setup(){
     World.add(world,polygon);
   sling =  new Sling(polygon,{x:200,y:200});
 
-}
+}   
 function draw(){
+
  Engine.update(engine);
- background(240)
+ //background(240)
+ 
+ text("score:"+score,50,50)
  base1.display();
  base2.display()
  push()
  fill("blue")
- box1.display();
+ box1.display(); 
  box2.display();
  box3.display();
  box4.display();
@@ -69,10 +76,26 @@ function draw(){
  box14.display();
  box15.display();
  box16.display();
+ pop();
+ box1.score();
+ box2.score();
+ box3.score();
+ box4.score();
+ box5.score();
+ box6.score();
+ box7.score();
+ box8.score();
+ box9.score();
+ box10.score();
+ box12.score();
+ box13.score();
+ box14.score();
+ box15.score();
+ box16.score();
 
- box17.display()
-pop()
- //sling.display();
+
+
+
 
  imageMode(CENTER)
  image(polygonimg,polygon.position.x,polygon.position.y,50,50)
@@ -89,3 +112,18 @@ function keyPressed(){
         sling.attach(polygon)
     }
 }
+async function getBackgroundImg(){
+    var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
+     var responseJSON = await response.json(); 
+    var datetime = responseJSON.datetime; 
+    var hour = datetime.slice(11,13); 
+    if(hour>= 06&& hour<=14)
+    { 
+    background("white")
+    
+    } 
+    else{ 
+    background("black")
+    }
+ 
+    }
